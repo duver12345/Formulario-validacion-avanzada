@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de validacion avanzada </title>
+    <link rel="stylesheet" href="../_CSS/style.css">
+</head>
+<body>
+
+  <div class="container">
+      <h1>🚀 Formulario avanzado</h1>
+    
+      <!--Barra de progreso-->
+      <div class="progreso-formulario">
+         <div class="barra-progreso" id="barraPogreso"></div>
+      </div>
+      <p style="text-align: center; color: #666; margin-bottom: 30px">
+         Progreso: <span id="porcentajeProgreso">0%</span> 
+      </p>
+
+      <!--form-->
+      <form id="formularioAvanzado"
+         novalidate> <!-- Se usa cuando no hay servidor -->
+        <!--Nombre con validacion en tiempo real-->
+        <div class="form-group">
+          <label for="nombreCompleto">Nombres completo *</label> 
+          <input 
+           type="text"
+           id="nombresCompleto"
+           name="nombresCompleto"
+           required
+           outofocus 
+           placeholder="Minimo 2 nombres"
+           pattern="[A-Za-zÁÉÍÓúáíóúÑñ ]{3-40}" />
+           <div
+           class="mensaje-error"
+           id="errornombre"></div>
+           <div 
+            class="mensaje-exito"
+            id="exitoNombre"></div>
+         </div>
+          
+         
+         <div class="form-group">
+             <div class="form-group">
+              <label for="apellidoCompleto">Apellidos completo *</label>
+              <input
+              type="text"
+              id="apellidoCompleto"
+              name="apellidoCompleto"
+              required
+              autofocus
+              placeholder="Minimo 2 apellidos"
+              pattern="[A-Za-zÁÉÍÓúáíóúÑñ ] {3-40}"/>
+              <div 
+              class="mensaje-error"
+              id="errorApellido"></div>
+
+              <div
+              class="mensaje-exito"
+              id="exitoApellido"></div>
+
+         </div>
+
+
+         <!-- Correo con validacion personalizada -->
+         <div class="form-group">
+            <label for="correo">Correo electronico *</label>
+            <input
+            type="email"
+            id="correo"
+            name="correo"
+            required
+            placeholder="usuario@dominio.com" 
+            pattern="[\w-\.]+@([\w-]+\.)+[\w-]{5,50}$"/>
+            <div 
+            class="mensaje-error"
+            id="errorCorreo"></div>
+            <div 
+            class="mensaje-exito"
+            id="exitoCorreo"></div>
+         </div>
+
+          <div class="form-group">
+            <label for="correo">Confirmacion de correo electronico *</label>
+            <input
+            type="email"
+            id="correo"
+            name="correo"
+            required
+            placeholder="usuario@dominio.com" 
+            pattern="[\w-\.]+@([\w-]+\.)+[\w-]{5,50}$"/>
+            <div 
+            class="mensaje-error"
+            id="errorCorreo"></div>
+            <div 
+            class="mensaje-exito"
+            id="exitoCorreo"></div>
+          </div>
+
+
+        <!--Contraseña con indicador de fortaleza-->
+        <div class="form-group">
+          <label for="password">Contraseña *</label>
+          <input 
+          type="password"
+          id="password"
+          name="password"
+          required
+          placeholder="Minimo 8 caracteres"
+          minlenght="8"/>
+        
+          <div 
+          class="password-strenght"
+          id="strengthBar"></div>
+          <div
+          class="mensaje-error"
+          id="errorPassword"></div>
+          <div 
+          class="mensaje-exito"
+          id="exitoPassword"></div>
+         </div>
+          
+         <!--Confirmacion de contraseña-->
+         <div class="form-group">
+            <label for="confirmarPassword">Confirmar contraseña *</label>
+            <input 
+            type="password"
+            id="confirmarPassword"
+            name="confirmarPassword"
+            required
+            placeholder="Repite su contraseña" />
+            <div 
+            class="mensaje-error"
+            id="errorConfirmar"></div>
+            <div 
+            class="mensaje-exito"
+            id="exitoConfirmar"></div>
+         </div>
+
+         <!--Telefono con formato-->
+         <div class="form-group">
+            <label for="telefono">Telefono *</label>
+            <input
+            type="tel"
+            id="telefono"
+            name="telefono"
+            required
+            placeholder="300-123-4567"
+            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"/>
+            <div 
+            class="mensaje-error"
+            id="errorTelefono"></div>
+            <div 
+            class="mensaje-exito"
+            id="exitoTelefono"></div>
+         </div>
+
+         <!-- Fecha de nacimiento con validacion -->
+         <div class="form-group">
+            <label for="fechaNacimiento">Fecha de nacimiento *</label>
+             <input
+            type="date"
+            id="fechaNacimiento"
+            name="fechaNacimiento"
+            required />
+            <div 
+            class="mensaje-error"
+            id="errorFecha"></div>
+            <div 
+            class="mensaje-exito"
+            id="exitoFecha"></div>
+         </div>
+         <!-- Comentarios con contador -->
+          <div class="form-group">
+             <label for="comentarios">Comentarios</label>
+             <textarea
+             id="comentarios"
+             name="comentarios"
+             rows="4"
+             maxlenght="500"
+             placeholder="Cuentanos sobre ti (Maximo 500 caracteres)"></textarea>
+              <div class="contador-caracteres">
+                 <span id="contadorComentarios">0</span>/500 caracteres
+              </div>
+          </div>
+         
+
+         <!-- Terminos y condiciones --> 
+          <div class="form-group">
+              <input 
+              type="checkbox"
+              id="terminos"
+              name="terminos"
+              required />
+              <label 
+                for="terminos"
+                style="display: inline; margin-left: 8px">
+                Acepto los terminos y condiciones *
+             </label>
+               <div
+                 clas="mensaje-error"
+                 id="errorTerminos">
+              </div>   
+          </div>
+          
+           <button
+             type="submit"
+             id="btnEnviar"
+             disable>
+             📨Enviar Formulario
+         </button>
+      </form>
+
+
+   </div> <!-- container -->
+    
+</body>
+</html>

@@ -1,0 +1,107 @@
+body {
+    font-family:  'Segoe UI',Tahoma, Geneva, Verdana, sans-serif;
+    max-width: 700px; /* Ancho del body */
+    margin: 0 auto; /* Margen para centrar el body */
+    padding: 20px; /* Espacio entre el contenido y el borde */
+    background:linear-gradient(135deg, #3053f0 0%,  #0e045b 100%);
+    min-height: 100vh; /* Altura mínima del body */
+}
+
+.container{
+    background-color: white;  /* Color de fondo del contenedor */
+    padding: 40px;  /* Espacio entre el contenido y el borde */
+    border-radius: 15px;  /* Redondeado del contenedor */
+    box-shadow: 0 10px 30px  rgba(0, 0, 0, 0.2);  /* Sombra del contenedor */
+}
+
+.progreso-formulario {
+    width: 100%; /* Ancho del formulario, de quien lo contiene osea container*/
+    height: 6px; /* Altura del progreso */
+    background-color: #e1e5e9; 
+    border-radius: 3px;
+    margin-bottom: 30px; /* Espacio entre el progreso y el formulario */
+    overflow: hidden; /* Cuando es muy largo lo corta para quede dentro del container y que no muestre el exceso */
+}
+
+.barra-Progreso {
+    height: 100%;
+    background-color: linear-gradient(90deg, #667eea, #764ba2);
+    width: 0%; /* Ancho de la barra de progreso */
+    transition: width 0.5s ease; /* Cada vez que se cumpla con un progreso se actualiza el ancho de la barra */
+    border-radius: 3px;
+}
+
+.form-group {
+    margin-bottom: 25px; /* Espacio entre cada grupo de campos */
+    position: relative; /* Posicionamiento relativo para poder colocar el texto de ayuda */
+}
+
+h1{
+    color: #333;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #555;
+    font-size: 0.95rem;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e1e5e9;
+    border-radius: 8px;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: all 0,3s ease;
+}
+
+input.valido,
+select.valido,
+textarea.valido {
+    border-color: #28a745;
+    background-color: #f8fff9;
+}
+
+input.invalido,
+select.invalido,
+textarea.invalido {
+    border-color: #dc3545;
+    background-color: #fff8f8;
+}
+
+input.focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102,126,234,0.1);
+}
+
+/* Mensajes de error */
+.mensaje-error{
+    color: #dc3545;
+    font-size: 0.85rem;
+    margin-top: 5px;
+    display: none;
+    display: none;
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        tranform: tranlatey(-10px);
+    }
+    to {
+        opacity: 1;
+        transform:translate(0);
+    }
+}
