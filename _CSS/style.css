@@ -1,54 +1,56 @@
+
 body {
-    font-family:  'Segoe UI',Tahoma, Geneva, Verdana, sans-serif;
-    max-width: 700px; /* Ancho del body */
-    margin: 0 auto; /* Margen para centrar el body */
-    padding: 20px; /* Espacio entre el contenido y el borde */
-    background:linear-gradient(135deg, #3053f0 0%,  #0e045b 100%);
-    min-height: 100vh; /* Altura mínima del body */
+    font-family: Arial, Helvetica, sans-serif;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 20px;
+    background: linear-gradient(135deg, #111111 0%, #0e045b 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
 }
 
-.container{
-    background-color: white;  /* Color de fondo del contenedor */
-    padding: 40px;  /* Espacio entre el contenido y el borde */
-    border-radius: 15px;  /* Redondeado del contenedor */
-    box-shadow: 0 10px 30px  rgba(0, 0, 0, 0.2);  /* Sombra del contenedor */
+.container {
+    background-color: rgb(233, 233, 233);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 .progreso-formulario {
-    width: 100%; /* Ancho del formulario, de quien lo contiene osea container*/
-    height: 6px; /* Altura del progreso */
-    background-color: #e1e5e9; 
+    width: 100%;
+    height: 6px;
+    background-color: #0e045b;
     border-radius: 3px;
-    margin-bottom: 30px; /* Espacio entre el progreso y el formulario */
-    overflow: hidden; /* Cuando es muy largo lo corta para quede dentro del container y que no muestre el exceso */
-}
-
-.barra-Progreso {
-    height: 100%;
-    background-color: linear-gradient(90deg, #667eea, #764ba2);
-    width: 0%; /* Ancho de la barra de progreso */
-    transition: width 0.5s ease; /* Cada vez que se cumpla con un progreso se actualiza el ancho de la barra */
-    border-radius: 3px;
-}
-
-.form-group {
-    margin-bottom: 25px; /* Espacio entre cada grupo de campos */
-    position: relative; /* Posicionamiento relativo para poder colocar el texto de ayuda */
-}
-
-h1{
-    color: #333;
-    text-align: center;
     margin-bottom: 30px;
-    font-size: 2rem;
+    overflow: hidden;
+}
+
+.barra-progreso {
+    height: 100%;
+    background: linear-gradient(90deg, #080714, #f7f7f8);
+    width: 0;
+    transition: width 0.5s ease;
+    border-radius: 3px;
 }
 
 label {
     display: block;
-    margin-bottom: 8px;
     font-weight: 600;
-    color: #555;
-    font-size: 0.95rem;
+    font-size: 1rem;
+    color: #2c3e50;
+    margin-bottom: 6px;
+    padding-left: 2px;
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 input,
@@ -56,9 +58,10 @@ select,
 textarea {
     width: 100%;
     padding: 12px 15px;
-    border: 2px solid #e1e5e9;
+    border: 1px solid #ccc;
     border-radius: 8px;
-    font-size: 16px;
+    font-size: 1rem;
+    color: #333;
     box-sizing: border-box;
     transition: all 0,3s ease;
 }
@@ -66,42 +69,129 @@ textarea {
 input.valido,
 select.valido,
 textarea.valido {
-    border-color: #28a745;
+    border-color: #2ecc71;
     background-color: #f8fff9;
 }
 
-input.invalido,
-select.invalido,
-textarea.invalido {
-    border-color: #dc3545;
-    background-color: #fff8f8;
+input.error,
+select.error,
+textarea.error {
+    border-color: #e74c3c;
+    background-color: #ffffff;
 }
 
-input.focus,
+input:focus,
 select:focus,
 textarea:focus {
-    outline: none;
-    border-color: #667eea;
-    box-shadow: 0 0 0 3px rgba(102,126,234,0.1);
+    border-color: #3498db;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
 }
 
-/* Mensajes de error */
-.mensaje-error{
-    color: #dc3545;
-    font-size: 0.85rem;
+.mensaje-error {
+    color: #e74c3c;
+    font-size: 0.9rem;
     margin-top: 5px;
     display: none;
-    display: none;
-    animation: slideDown 0.3s ease;
+    animation: slidedown 0.3s ease;
 }
 
-@keyframes slideDown {
+.mensaje-exito {
+    color: #2ecc71;
+    font-size: 0.9rem;
+    margin-top: 5px;
+    display: none;
+    animation: slidedown 0.3s ease;
+}
+
+@keyframes slidedown {
     from {
         opacity: 0;
-        tranform: tranlatey(-10px);
+        transform: translateY(-10px);
     }
     to {
         opacity: 1;
-        transform:translate(0);
+        transform: translateY(0);
     }
+}
+
+.password-strength {
+    height: 6px;
+    border-radius: 2px;
+    margin-top: 5px;
+    transition: all 0.3s ease;
+    background-color: #ccc; /* color base por si aún no tiene clase de fuerza */
+    width: 0; /* puede ser 100% para testear visualmente */
+}
+.strength-weak {
+    background-color: #e74c3c;
+    width: 33%;
+}
+.strength-medium {
+    background-color: #f1c40f;
+    width: 66%;
+}
+.strength-strong {
+    background-color: #2ecc71;
+    width: 90%;
+}
+.strength-very-strong {
+    background-color: #3498db;
+    width: 100%;
+}
+
+
+button {
+    background-color: linear-gradient(135deg, #13e753 0%, #0060e6 100%);
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    width: 100%;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 1, 1, 0.2);
+}
+
+button:disabled {
+    background-color: #0591ee;
+    cursor: not-allowed;
+}
+
+.contador-caracteres {
+    font-size: 0.9rem;
+    color: #07f763;
+    text-align: right;
+    margin-top: 5px;
+      text-align:right;
+}
+
+.resumen-datos {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 30px;
+    display: none;
+    border-left: 4px solid #3498db;
+}   
+
+.dato.resumen {
+    margin-bottom: 10px;
+padding: 10px;
+background: #f0eded;
+border-radius: 6px;
+border: 1 px solid #ddd;
+
+}
+
+.dato.resumen {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #2c3e50;
 }
